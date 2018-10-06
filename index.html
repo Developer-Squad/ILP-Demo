@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $.get("https://api.textgears.com/check.php?text=I+is+a+engeneer!&key=etta8bPnsZYS6jPd", function(data, status){
+            alert("Data: " + JSON.stringify(data) + "\nStatus: " + status);
+            console.log(data);
+        });
+    });
+});
+</script>
+</head>
+<body>
+
+<button>Check</button>
+
+</body>
+</html>
