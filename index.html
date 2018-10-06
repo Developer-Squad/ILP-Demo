@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
+    <script>
+        $(document).ready(function(){
     $("button").click(function(){
         $.get("https://api.textgears.com/check.php?text=I+is+a+engeneer!&key=etta8bPnsZYS6jPd", function(data, status){
             alert("Data: " + JSON.stringify(data) + "\nStatus: " + status);
@@ -13,9 +14,14 @@ $(document).ready(function(){
 });
 </script>
 </head>
-<body>
 
-<button>Check</button>
+<body>
+    <form>
+        <label><b>Enter a Message</b></label>
+        <input type="text" name="message" id="user_input">
+    </form>
+    <button>Check</button>
 
 </body>
+
 </html>
