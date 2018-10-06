@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-        $(document).ready(function(){
-    $("button").click(function(){
-        $.get("https://api.textgears.com/check.php?text=I+is+a+engeneer!&key=etta8bPnsZYS6jPd", function(data, status){
-            alert("Data: " + JSON.stringify(data) + "\nStatus: " + status);
-            console.log(data);
+
+        function analyzeWord(word){
+            var arr = word.split(" ");
+            var str = "";
+            for(var i=0;i<arr.length;i++){
+                str = str + "+" + arr[i];
+            }
+            $(document).ready(function(){
+            $("button").click(function(){
+                $.get(`https://api.textgears.com/check.php?text=${str}!&key=etta8bPnsZYS6jPd`, function(data, status){
+                    // alert("Data: " + JSON.stringify(data) + "\nStatus: " + status);
+                    // $("document.body").remove(".data");
+                    // $("document.body").append(".data");
+                    window.open(`https://api.textgears.com/check.php?text=${str}!&key=etta8bPnsZYS6jPd`,"_blank");
+                    // console.log(data.errors);
+                    // var error = data.errors;
+                    // $(".data").append((error.bad));
+                    // $(".data").append( JSON.stringify(data));
+                    var dateObj = {};
+
+                });
+            });
         });
-    });
-});
-</script>
+    }
+    </script>
+    <style>
+    
+    </style>
 </head>
 
 <body>
@@ -20,8 +38,8 @@
         <label><b>Enter a Message</b></label>
         <input type="text" name="message" id="user_input">
     </form>
-    <button>Check</button>
-
+    <button onmousedown="analyzeWord(document.getElementById('user_input').value);">Check</button>
+    <div class="data"></div>
 </body>
 
 </html>
